@@ -1,7 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "name": "audiodeck-free",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "description": "Player de áudio com slots, atalhos, fade e medidores RMS/Peak",
+  "author": "AlanPS",
   "private": true,
   "type": "module",
   "main": "electron/main.cjs",
