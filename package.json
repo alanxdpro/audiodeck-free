@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "audiodeck-free",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "jest",
+    "electron:dev": "electron .",
+    "elect:dev": "npm run electron:dev",
+    "pack:msix": "npx electron-builder --win msix",
+    "dist:msix": "npm run build && npx electron-builder --win msix",
+    "pack:nsis:x64": "npm run build && npx electron-builder --win nsis --x64",
+    "pack:nsis:arm64": "npm run build && npx electron-builder --win nsis --arm64",
+    "dist:nsis:x64": "npm run pack:nsis:x64",
+    "dist:nsis:arm64": "npm run pack:nsis:arm64"
+  },
+  "dependencies": {
+    "howler": "^2.2.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.2",
+    "@testing-library/jest-dom": "^6.4.8",
+    "@testing-library/react": "^16.0.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jest": "^29.7.0",
+    "jsdom": "^24.0.0",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.8",
+    "electron": "^32.2.0",
+    "electron-builder": "^24.9.5"
+  },
+  "build": {
+    "appId": "com.audiodeck.free",
+    "productName": "AudioDeck FREE",
+    "directories": { "output": "release" },
+    "files": [
+      "dist/**",
+      "electron/**"
+    ],
+    "win": {
+      "target": ["nsis"],
+      "artifactName": "${productName}-${version}-${arch}.${ext}"
+    }
+    
+  }
+}
